@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경스타일</title>
+    <style>
+        body {
+            background: aqua;
+            background: rgb(20, 40, 200);
+            /* 투명도는 0에 가까울 수록 투명, 1에 가까울 수록 불투명 */
+            background: rgba(20, 40, 200, 0.6);
+            /* hue: 색상(0~360, 120: 초록, 240: 파랑), saturation: 채도(짙음), lightness: 명도(밝기) */
+            background: hsl(120, 50%, 50%);
+            background: hsla(120, 50%, 50%, 0.4);
+            background: #d93e137b;
+        }
+
+        #div-bg {
+            width: 50%;
+            background: white;
+        }
+
+        .div-test {
+            background-color: white;
+            padding: 20px;/*테두리와 글자 사이 띄움*/
+            width: 20%;
+            border: 5px dashed black;/*테두리, 점선*/
+            float: left;/*왼쪽부터 박스가 붙어서 표현됨*/
+        }
+        /*=============배경 여백 범위===================*/
+        #div1 {
+            background-clip: border-box;/*테두리여백까진x*/
+        }
+
+        #div2 {
+            background-clip: padding-box;/*테두리여백까지o*/
+        }
+
+        #div3 {
+            background-clip: content-box;/*텍스트 박스까지만 여백*/
+        }
+
+        .clearfloat {
+            clear: left; /*옆으로 안붙게 밑에 오른쪽으로 붙이기위해 씀*/
+        }
+
+        #bg-img {
+            width: 70%;
+            height: 1600px;
+            border: 4px solid red;
+            background-image: url('../resources/images/flower1.PNG');
+            /*여기까지만 쓰면 테두리안에 이미지가 계속 반복되어 생김*/
+            /*=========================*/
+            background-repeat: no-repeat;/*repeat-x,repeat-y는 x축,y축쪽으로 이미지 반복출력*/
+            /*===========================*/
+            background-size: cover;/*커버는 완전히 덮는다는 뜻*/
+            background-size: contain;/*가장 큰쪽(지금은 가로)으로 꽉차게 출력*/
+            background-size: auto;/*원래크기를 유지한다*/
+            /*==========================*/
+            background-attachment: fixed;/*화면 고정*/
+            background-attachment: scroll;/*스크롤이 됨*/
+            /*===========================*/
+            background-position: 50% 50%;/*영역안의 %만큼에 이미지가 이동하여 출력*/
+            background-position: 30px 50px;
+            background-position: bottom;/*방향을 지정 (left, right, top, bottom)*/
+        }
+    </style>
+    
+</head>
+
+<body>
+    <h1>배경색과 배경 이미지</h1>
+    <pre>body{background-color:색상명 | rgb | rgba | hsl | hsla | 16진수;}로
+    배경색을 지정할 수 있다.</pre>
+    <a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank">
+        색상명 참조 사이트로 이동</a>
+    <hr>
+    <h3>div 배경 테스트</h3>
+    <pre>div 영역을 설정하는 경우 배경색을 지정하기 위해서는 div에 배경 색을 별도로
+    지정해야 한다.
+</pre>
+    <div id="div-bg">
+        생명을 창공에 인간의 곧 위하여 보라. 들어 타오르고 거선의 눈에 옷을 얼음 아름다우냐? 때까지 바로 아름답고 위하여서. 우리의 이 영락과 몸이 이상 우리의 것이다. 대고, 천하를 황금시대를 광야에서 실현에 사막이다. 길을 따뜻한 청춘의 사랑의 인생에 청춘 간에 안고, 가치를 것이다. 위하여 살 그들은 피다. 끝까지 용기가 맺어, 하는 풀이 것은 전인 것이다. 것이다.보라, 그러므로 얼마나 이성은 그리하였는가? 소금이라 예수는 수 대중을 이 생의 그들의 가치를 사막이다.
+    </div>
+    <h3>배경 적용 범위 조정</h3>
+    <pre>div 영역의 배경 적용 범위를 지정할 때 background-clip 속성을 사용한다.</pre>
+    <!--div.div-test#div$*3-->
+    <div class="div-test" id="div1">
+        생명을 창공에 인간의 곧 위하여 보라. 들어 타오르고 거선의 눈에 옷을 얼음 아름다우냐? 때까지 바로 아름답고 위하여서. 우리의 이 영락과 몸이 이상 우리의 것이다. 대고, 천하를 황금시대를 광야에서 실현에 사막이다. 길을 따뜻한 청춘의 사랑의 인생에 청춘 간에 안고, 가치를 것이다. 위하여 살 그들은 피다. 끝까지 용기가 맺어, 하는 풀이 것은 전인 것이다. 것이다.보라, 그러므로 얼마나 이성은 그리하였는가? 소금이라 예수는 수 대중을 이 생의 그들의 가치를 사막이다.
+    </div>
+    <div class="div-test" id="div2">
+        생명을 창공에 인간의 곧 위하여 보라. 들어 타오르고 거선의 눈에 옷을 얼음 아름다우냐? 때까지 바로 아름답고 위하여서. 우리의 이 영락과 몸이 이상 우리의 것이다. 대고, 천하를 황금시대를 광야에서 실현에 사막이다. 길을 따뜻한 청춘의 사랑의 인생에 청춘 간에 안고, 가치를 것이다. 위하여 살 그들은 피다. 끝까지 용기가 맺어, 하는 풀이 것은 전인 것이다. 것이다.보라, 그러므로 얼마나 이성은 그리하였는가? 소금이라 예수는 수 대중을 이 생의 그들의 가치를 사막이다.
+    </div>
+    <div class="div-test" id="div3">
+        생명을 창공에 인간의 곧 위하여 보라. 들어 타오르고 거선의 눈에 옷을 얼음 아름다우냐? 때까지 바로 아름답고 위하여서. 우리의 이 영락과 몸이 이상 우리의 것이다. 대고, 천하를 황금시대를 광야에서 실현에 사막이다. 길을 따뜻한 청춘의 사랑의 인생에 청춘 간에 안고, 가치를 것이다. 위하여 살 그들은 피다. 끝까지 용기가 맺어, 하는 풀이 것은 전인 것이다. 것이다.보라, 그러므로 얼마나 이성은 그리하였는가? 소금이라 예수는 수 대중을 이 생의 그들의 가치를 사막이다.
+    </div>
+    
+    <!-- <br clear="left"> -->
+    <hr class="clearfloat">
+
+    <h3>배경 이미지 테스트</h3>
+    <pre>background-image 속성을 이용하여 배경 사진을 넣을 수 있다. 사진 크기에 따라
+    자동 반복하여 이미지가 나타난다.
+</pre>
+    <div id="bg-img"></div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
